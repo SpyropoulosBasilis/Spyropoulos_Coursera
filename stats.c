@@ -9,13 +9,13 @@
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
- * @brief <Add Brief Description Here >
+ * @file stats.c 
+ * @brief Data analytics on the maximum, minimum, mean, and median of an usigned char data set array
  *
  * <Add Extended Description Here>
  *
- * @author <Add FirsName LastName>
- * @date <Add date >
+ * @author Spyropoulos Basilis
+ * @date 19/8/2022
  *
  */
 
@@ -38,6 +38,40 @@ void main() {
   /* Other Variable Declarations Go Here */
   /* Statistics and Printing Functions Go Here */
 
+  test_ptr = test;
+  print_statistics();
+//  print_array(test_ptr, SIZE);
+
+//  Calculate and print the Sorted (above "test") Array
+
 }
 
 /* Add other Implementation File Code Here */
+
+void print_statistics() {
+
+}
+
+void print_array(unsigned char *table, int length) {
+
+}
+
+unsigned char find_mean(unsigned char *table, int length) {
+
+}
+
+unsigned char find_median(unsigned char *table, int length) {
+
+}
+
+unsigned char find_maximum(unsigned char *table, int length) {
+
+}
+
+unsigned char find_minimum(unsigned char *table, int length) {
+
+}
+
+void sort_array(unsigned char *table, int length) {
+
+}
