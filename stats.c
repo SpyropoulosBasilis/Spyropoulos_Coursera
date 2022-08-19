@@ -43,35 +43,85 @@ void main() {
 //  print_array(test_ptr, SIZE);
 
 //  Calculate and print the Sorted (above "test") Array
+  unsigned char sorted_array[SIZE];
+  unsigned char *sorted_ptr;
+  sorted_ptr = sorted_array;
+  int i;
+  for (i=0; i<SIZE; i++)
+    *(sorted_ptr+i) = *(test_ptr+i);
 
+  sort_array(sorted_ptr, SIZE);
+  printf("\n------ Sorted Array -----\n");
+  print_array(sorted_ptr, SIZE);
 }
 
 /* Add other Implementation File Code Here */
 
 void print_statistics() {
-
+  printf("\n");
+  printf("The minimum is : %d\n", find_minimum(test_ptr, SIZE));
+  printf("The maximum is : %d\n", find_maximum(test_ptr, SIZE));
+  printf("The   mean  is : %d\n", find_mean(test_ptr, SIZE));
+  printf("The  median is : %d\n", find_median(test_ptr, SIZE));
 }
 
 void print_array(unsigned char *table, int length) {
-
+  int i;
+  printf("Index\tValue\n");
+  for (i=0; i<length; i++)
+  printf(" %d \t %d\n",i+1, table[i]);
 }
 
 unsigned char find_mean(unsigned char *table, int length) {
-
+  int i, sum = 0;
+  unsigned char result;
+  for (i=0; i<length; i++)
+    sum += table[i];
+  if (length > 0)
+    result = sum/length;
+  else
+    result = table[0];
+  return result;
 }
 
 unsigned char find_median(unsigned char *table, int length) {
+  unsigned char sorted_array[length];
+  unsigned char *sorted_ptr;
+  sorted_ptr = sorted_array;
+  int i;
+  for (i=0; i<SIZE; i++)
+    *(sorted_ptr+i) = *(test_ptr+i);
 
+  sort_array(sorted_ptr, length);
+  return sorted_array[((length + (length % 2)) / 2) - 1];
 }
 
 unsigned char find_maximum(unsigned char *table, int length) {
-
+  int i;
+  unsigned char result = table[0];
+  for (i=0; i<length; i++)
+    if (table[i] > result)
+      result = table[i];
+  return result;
 }
 
 unsigned char find_minimum(unsigned char *table, int length) {
-
+  int i;
+  unsigned char result = table[0];
+  for (i=0; i<length; i++)
+    if (table[i] < result)
+      result = table[i];
+return result;
 }
 
 void sort_array(unsigned char *table, int length) {
-
+  unsigned char temp;
+  int i,j;
+  for (i=0; i<length; i++)
+    for (j=length-1; j>i; j--)
+      if (*(table+j) > *(table+i)) {
+        temp = *(table+i);
+        *(table+i) = *(table+j);
+        *(table+j) = temp;
+      }
 }
